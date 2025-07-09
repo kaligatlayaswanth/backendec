@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-x-bv9hl0-=r4lz4!$_&2s1eixg9@yh-ucj+x59p#opxyrt!$^*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['backendec-g9oj.onrender.com','siot.sortyx.com','*']
+ALLOWED_HOSTS = ['backendec-g9oj.onrender.com','*']
 
 
 # Application definition
@@ -144,6 +144,8 @@ REST_FRAMEWORK = {
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
+    "https://siot.sortyx.com",
+    "https://spectral-ecom-edge-black.vercel.app"
     
 ]
 CORS_ALLOW_ALL_ORIGINS = True  
