@@ -41,8 +41,8 @@ INSTALLED_APPS = [
     'base',
     'rest_framework',
     'corsheaders',
-    'cloudinary_storage',
     'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -169,7 +169,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.getenv("CLOUD_NAME", "your_cloud_name_here"),
-    'API_KEY': os.getenv("API_KEY", "your_api_key_here"),
-    'API_SECRET': os.getenv("API_SECRET", "your_api_secret_here")
+    'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET'),
 }
