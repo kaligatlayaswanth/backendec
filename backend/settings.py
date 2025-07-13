@@ -86,7 +86,8 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-load_dotenv()
+if DEBUG:
+    load_dotenv() 
 DATABASES = {
     'default': dj_database_url.parse(os.getenv("DATABASE_URL"))
 }
