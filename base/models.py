@@ -1,6 +1,7 @@
 from django.db import models
 import os
 from django.conf import settings
+from cloudinary.models import CloudinaryField
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
@@ -12,7 +13,7 @@ class Product(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
     brand = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='products/')
+    image = CloudinaryField('image', folder='products/')
     categories = models.ManyToManyField(Category, related_name='products')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -32,11 +33,11 @@ class Product(models.Model):
 class SuccessStory(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
-    image_1 = models.ImageField(upload_to='success_stories/')
-    image_2 = models.ImageField(upload_to='success_stories/', blank=True, null=True)
-    image_3 = models.ImageField(upload_to='success_stories/', blank=True, null=True)
-    image_4 = models.ImageField(upload_to='success_stories/', blank=True, null=True)
-    image_5 = models.ImageField(upload_to='success_stories/', blank=True, null=True)
+    image_1 = CloudinaryField('image', folder='success_stories/')
+    image_2 = CloudinaryField('image', folder='success_stories/', blank=True, null=True)
+    image_3 = CloudinaryField('image', folder='success_stories/', blank=True, null=True)
+    image_4 = CloudinaryField('image', folder='success_stories/', blank=True, null=True)
+    image_5 = CloudinaryField('image', folder='success_stories/', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -62,9 +63,9 @@ class RecommendedProduct(models.Model):
         return self.product.name
 
 class CarouselImage(models.Model):
-    image_1 = models.ImageField(upload_to='carousel/')
-    image_2 = models.ImageField(upload_to='carousel/')
-    image_3 = models.ImageField(upload_to='carousel/')
+    image_1 = CloudinaryField('image', folder='carousel/')
+    image_2 = CloudinaryField('image', folder='carousel/')
+    image_3 = CloudinaryField('image', folder='carousel/')
     
 
     def __str__(self):
